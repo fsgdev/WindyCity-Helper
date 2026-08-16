@@ -81,9 +81,11 @@ export function DetailModal({ item, drugQuantity, onClose }: DetailModalProps) {
               <span className="rounded-md border border-[#161b22] bg-[#0a0d12] px-2 py-0.5 text-[11px] font-bold tracking-[0.5px] text-[#9aa6b2]">
                 {typeLabels[item.type]}
               </span>
-              <span className="rounded-md border border-[#161b22] bg-[#0a0d12] px-2 py-0.5 text-[11px] font-bold tracking-[0.5px] text-[#9aa6b2]">
-                Tier {item.tier}
-              </span>
+              {item.tier !== undefined && (
+                <span className="rounded-md border border-[#161b22] bg-[#0a0d12] px-2 py-0.5 text-[11px] font-bold tracking-[0.5px] text-[#9aa6b2]">
+                  Tier {item.tier}
+                </span>
+              )}
             </div>
             <h2 className="[font-family:'Inter',Helvetica] text-2xl font-black tracking-[-0.8px] text-[#f5f7fa]">
               {item.name}{drugQuantity ? ` ${drugQuantity}` : ""}

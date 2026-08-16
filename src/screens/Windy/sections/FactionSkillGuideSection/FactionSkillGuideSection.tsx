@@ -29,7 +29,7 @@ const skillData: Record<
 > = {
   "Faction skills": {
     treeTitle: "Faction skill tree",
-    treeCount: "11 skills listed",
+    treeCount: "15 skills listed",
     skills: [
       {
         unlock: "3",
@@ -48,6 +48,12 @@ const skillData: Record<
         title: "Tazer Resistance",
         description: "No effect by tasers once per 30 seconds.",
         tags: ["Faction", "Combat defense"],
+      },
+      {
+        unlock: "7",
+        title: "Take Cover",
+        description: "Allows the user to have access to Q Peak.",
+        tags: ["Faction", "Peek access"],
       },
       {
         unlock: "8",
@@ -74,6 +80,18 @@ const skillData: Record<
         tags: ["Faction", "Movement boost"],
       },
       {
+        unlock: "12",
+        title: "Top Hustler",
+        description: "Increases your money limit by $200,000.",
+        tags: ["Faction", "Money cap"],
+      },
+      {
+        unlock: "12",
+        title: "Fortitude",
+        description: "Allows the user to not have the limping animation while getting shot.",
+        tags: ["Faction", "Combat defense"],
+      },
+      {
         unlock: "13",
         title: "Hot Driver",
         description: "Allows Users to Improve The Cars Vehicle Meta during a Chase.",
@@ -84,6 +102,12 @@ const skillData: Record<
         title: "Rapid Deployment",
         description: "Allows the user to maneuver in out and out vehicles slightly faster.",
         tags: ["Faction", "Entry speed"],
+      },
+      {
+        unlock: "18",
+        title: "First Person Shooter",
+        description: "Allows No Screenshake or recoil in first person.",
+        tags: ["Faction", "Aim control"],
       },
       {
         unlock: "20",
@@ -102,7 +126,7 @@ const skillData: Record<
   },
   "Civilian skills": {
     treeTitle: "Civilian skill tree",
-    treeCount: "12 skills listed",
+    treeCount: "14 skills listed",
     skills: [
       {
         unlock: "3",
@@ -121,6 +145,12 @@ const skillData: Record<
         title: "Don't got time",
         description: "Allows valet to bring your vehicle to you, instead of driving to the garage.",
         tags: ["Civilian", "Vehicle utility"],
+      },
+      {
+        unlock: "7",
+        title: "Take Cover",
+        description: "Allows the user to have access to Q Peak.",
+        tags: ["Civilian", "Peek access"],
       },
       {
         unlock: "8",
@@ -145,6 +175,12 @@ const skillData: Record<
         title: "Reduced Fall Damage",
         description: "Civilian cannot slip or fall over from jumping too often.",
         tags: ["Civilian", "Safety"],
+      },
+      {
+        unlock: "12",
+        title: "Top Hustler",
+        description: "Increases your money limit by $200,000.",
+        tags: ["Civilian", "Money cap"],
       },
       {
         unlock: "13",
@@ -181,13 +217,19 @@ const skillData: Record<
   },
   "Illegal civilian": {
     treeTitle: "Illegal civilian skill tree",
-    treeCount: "13 skills listed",
+    treeCount: "17 skills listed",
     skills: [
       {
         unlock: "3",
         title: "Nametags",
         description: "Enables viewing nametags above players. Must be in a faction for /mark.",
         tags: ["Illegal", "Vision utility"],
+      },
+      {
+        unlock: "7",
+        title: "Take Cover",
+        description: "Allows the user to have access to Q Peak.",
+        tags: ["Illegal", "Peek access"],
       },
       {
         unlock: "8",
@@ -232,6 +274,18 @@ const skillData: Record<
         tags: ["Illegal", "Movement boost"],
       },
       {
+        unlock: "12",
+        title: "Top Hustler",
+        description: "Increases your money limit by $200,000.",
+        tags: ["Illegal", "Money cap"],
+      },
+      {
+        unlock: "12",
+        title: "Fortitude",
+        description: "Allows the user to not have the limping animation while getting shot.",
+        tags: ["Illegal", "Combat defense"],
+      },
+      {
         unlock: "13",
         title: "Hot Driver",
         description: "Allows users to improve the cars performance during a chase.",
@@ -248,6 +302,12 @@ const skillData: Record<
         title: "Killswitch",
         description: "Allows the vehicle you own that's currently out to be cut off instantly with a command (/killswitch). (/killswitch2 allows car to be operated again).",
         tags: ["Illegal", "Vehicle control"],
+      },
+      {
+        unlock: "18",
+        title: "First Person Shooter",
+        description: "Allows No Screenshake or recoil in first person.",
+        tags: ["Illegal", "Aim control"],
       },
       {
         unlock: "20",

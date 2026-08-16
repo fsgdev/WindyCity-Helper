@@ -1,4 +1,5 @@
 import { Badge } from "../../../../components/ui/badge";
+import { asset } from "../../../../lib/asset";
 
 const secondaryCtaClass =
   "inline-flex h-auto shrink-0 items-center gap-2 rounded-lg border border-[#161b22] bg-[#080b10b8] px-7 py-4 [font-family:'Inter',Helvetica] text-[15px] font-bold leading-normal tracking-[0] text-[#f5f7fa] backdrop-blur-[5px] backdrop-brightness-[100%] transition-colors hover:bg-[#080b10]/90 [-webkit-backdrop-filter:blur(5px)_brightness(100%)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b8c7d9]/40";
@@ -96,21 +97,24 @@ export const IllegalAreaHeroSection = (): JSX.Element => {
     <section className="relative w-full overflow-hidden">
       <div className="relative min-h-[843px] w-full">
         <div className="absolute inset-0 opacity-[0.42]">
-          <div className="absolute inset-0 [background:url(..//illegal-area-background.png)_50%_50%_/_cover]" />
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${asset("illegal-area-background.png")})` }}
+          />
           <img
             className="absolute left-1/2 top-0 hidden h-[843px] w-[878px] -translate-x-[27%] object-cover lg:block"
             alt="Background overlay middle"
-            src="/rectangle-1722.png"
+            src={asset("rectangle-1722.png")}
           />
           <img
             className="absolute right-0 top-0 hidden h-[702px] w-[560px] object-cover xl:block"
             alt="Background overlay right"
-            src="/rectangle-1723.png"
+            src={asset("rectangle-1723.png")}
           />
           <img
             className="absolute left-0 top-0 h-full max-w-[338px] object-cover"
             alt="Background left"
-            src="/rectangle-middle.png"
+            src={asset("rectangle-middle.png")}
           />
         </div>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,6,7,0.53)_0%,rgba(5,6,7,0.3)_40%,rgba(5,6,7,0.47)_100%)] opacity-50" />
@@ -120,7 +124,7 @@ export const IllegalAreaHeroSection = (): JSX.Element => {
           <header className="flex w-full max-w-[860px] flex-col items-start">
             <Badge className="h-auto rounded-xl border-none bg-transparent px-3.5 py-2 [font-family:'Inter',Helvetica] text-xs font-bold tracking-[0.48px] text-[#f5f7fa] hover:bg-transparent">
               <span className="mr-2 inline-flex shrink-0 items-center">
-                <img className="block" alt="Windy City icon" src="/windycity.svg" />
+                <img className="block" alt="Windy City icon" src={asset("windycity.svg")} />
               </span>
             </Badge>
             <div className="max-w-[860px] pt-5">

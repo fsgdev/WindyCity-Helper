@@ -145,7 +145,11 @@ export const RandomWheelRewardsSection = ({
 
   const getPool = useCallback(
     (tier: Tier, category: ItemType) =>
-      catalogItems.filter((item) => item.tier === tier && item.type === category),
+      catalogItems.filter(
+        (item) =>
+          item.type === category &&
+          (category === "drug" || item.tier === tier),
+      ),
     [],
   );
 
@@ -320,19 +324,21 @@ export const RandomWheelRewardsSection = ({
             RANDOM WHEEL
           </h2>
         </header>
-        <Tabs value={activeTierValue} onValueChange={handleTierChange} className="w-full lg:w-auto">
-          <TabsList className={filterTabsListClass}>
-            {tierOptions.map((tier) => (
-              <TabsTrigger
-                key={tier.value}
-                value={tier.value}
-                className={filterTabsTriggerClass}
-              >
-                {tier.label}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        </Tabs>
+        {!isDrugMode && (
+          <Tabs value={activeTierValue} onValueChange={handleTierChange} className="w-full lg:w-auto">
+            <TabsList className={filterTabsListClass}>
+              {tierOptions.map((tier) => (
+                <TabsTrigger
+                  key={tier.value}
+                  value={tier.value}
+                  className={filterTabsTriggerClass}
+                >
+                  {tier.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
+        )}
       </div>
 
       <div className="mt-6 px-4">

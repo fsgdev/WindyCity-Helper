@@ -148,7 +148,9 @@ export const RandomWheelRewardsSection = ({
       catalogItems.filter(
         (item) =>
           item.type === category &&
-          (category === "drug" || item.tier === tier),
+          (category === "drug" ||
+            item.tier === tier ||
+            item.spinTiers?.includes(tier)),
       ),
     [],
   );

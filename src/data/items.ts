@@ -3,7 +3,8 @@ import { asset } from "../lib/asset";
 export type ItemType = "weapon" | "drug";
 
 export interface WeaponStats {
-  damage: number;
+  minDamage: number;
+  maxDamage: number;
   range: number;
   fireRate: number;
   recoil: number;
@@ -21,6 +22,8 @@ export interface CatalogItem {
   type: ItemType;
   rarity: "Common" | "Uncommon" | "Rare" | "Epic" | "Legendary";
   tier?: 1 | 1.5 | 2;
+  /** Extra spin-wheel tiers this weapon also appears in, beyond its primary `tier`. */
+  spinTiers?: (1 | 1.5 | 2)[];
   description: string;
   tags: string[];
   image?: string;
@@ -38,7 +41,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("canik.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 18, maxDamage: 28, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "p88p",
@@ -50,7 +53,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("p88p.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 18, maxDamage: 28, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "cpt",
@@ -62,7 +65,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("cpt.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 21, maxDamage: 31, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g19g",
@@ -74,7 +77,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g19g.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 21, maxDamage: 31, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g23b",
@@ -86,7 +89,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g23b.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 21, maxDamage: 31, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g45s",
@@ -98,7 +101,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g45s.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 21, maxDamage: 31, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "olive17",
@@ -110,7 +113,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("olive17.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 21, maxDamage: 31, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "oliveg19",
@@ -122,7 +125,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("oliveg19.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 21, maxDamage: 31, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g30",
@@ -130,11 +133,12 @@ export const catalogItems: CatalogItem[] = [
     type: "weapon",
     rarity: "Common",
     tier: 1,
+    spinTiers: [1.5],
     description:
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g30.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 22, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g48",
@@ -146,7 +150,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g48.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 24, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "ffn",
@@ -154,11 +158,12 @@ export const catalogItems: CatalogItem[] = [
     type: "weapon",
     rarity: "Common",
     tier: 1,
+    spinTiers: [1.5],
     description:
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("ffn.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 26, maxDamage: 38, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "17g5",
@@ -170,7 +175,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("17g5.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 21, maxDamage: 31, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g22",
@@ -182,7 +187,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g22.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 21, maxDamage: 29, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g26",
@@ -194,7 +199,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g26.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 20, maxDamage: 25, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g40",
@@ -202,11 +207,12 @@ export const catalogItems: CatalogItem[] = [
     type: "weapon",
     rarity: "Common",
     tier: 1,
+    spinTiers: [1.5],
     description:
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g40.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 26, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g41",
@@ -218,7 +224,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g41.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 22, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "hk45",
@@ -230,7 +236,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("hk45.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 21, maxDamage: 31, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "sigcb",
@@ -242,7 +248,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("sigcb.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 21, maxDamage: 31, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g23",
@@ -254,7 +260,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g23.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 22, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g19flex",
@@ -266,7 +272,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g19flex.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 21, maxDamage: 29, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g19xg",
@@ -274,11 +280,12 @@ export const catalogItems: CatalogItem[] = [
     type: "weapon",
     rarity: "Common",
     tier: 1,
+    spinTiers: [1.5],
     description:
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g19xg.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 22, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g20",
@@ -290,7 +297,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g20.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 22, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "1911",
@@ -302,7 +309,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("1911.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 24, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g233",
@@ -314,7 +321,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g233.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 22, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "43mos",
@@ -326,7 +333,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("43mos.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 27, maxDamage: 33, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "45mos",
@@ -338,7 +345,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("45mos.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 27, maxDamage: 33, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "g26s",
@@ -350,7 +357,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("g26s.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 17, maxDamage: 28, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "switchred",
@@ -362,7 +369,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("switchred.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 17, maxDamage: 28, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "switchblue",
@@ -374,7 +381,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("switchblue.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 17, maxDamage: 28, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "arpsh",
@@ -386,7 +393,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("arpsh.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "mac10",
@@ -398,7 +405,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("mac10.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 17, maxDamage: 28, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "fnx45",
@@ -410,7 +417,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("fnx45.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 27, maxDamage: 33, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "bluetip57",
@@ -422,7 +429,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("bluetip57.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 30, maxDamage: 38, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "blackmdraco",
@@ -434,7 +441,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("blackmdraco.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 20, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "mdraco",
@@ -446,7 +453,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("mdraco.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 20, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "binaryg20",
@@ -458,7 +465,7 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("binaryg20.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 22, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "draco2",
@@ -470,7 +477,355 @@ export const catalogItems: CatalogItem[] = [
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
     image: asset("draco2.png"),
-    stats: { damage: 28, range: 35, fireRate: 72, recoil: 20 },
+    stats: { minDamage: 20, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "arp5",
+    name: "ARP 5",
+    type: "weapon",
+    rarity: "Common",
+    tier: 1.5,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("arp5.png"),
+    stats: { minDamage: 19, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "g21b",
+    name: "Glock 21B",
+    type: "weapon",
+    rarity: "Common",
+    tier: 1.5,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("g21b.png"),
+    stats: { minDamage: 23, maxDamage: 31, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "glock41",
+    name: "Glock 41",
+    type: "weapon",
+    rarity: "Common",
+    tier: 1.5,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("glock41.png"),
+    stats: { minDamage: 25, maxDamage: 33, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "g47",
+    name: "Glock 47",
+    type: "weapon",
+    rarity: "Common",
+    tier: 1.5,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("g47.png"),
+    stats: { minDamage: 17, maxDamage: 28, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "pmr",
+    name: "PMR-30",
+    type: "weapon",
+    rarity: "Common",
+    tier: 1.5,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("pmr.png"),
+    stats: { minDamage: 24, maxDamage: 31, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "19switch",
+    name: "19 Switch",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("19switch.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "g19my",
+    name: "G19 Binary",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("g19my.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "switchgold",
+    name: "Switch Gold",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("switchgold.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "switchgreen",
+    name: "Switch Green",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("switchgreen.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "switchpurple",
+    name: "Switch Purple",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("switchpurple.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "amirig23",
+    name: "Glock 23 Switch",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("amirig23.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "mp9frt",
+    name: "MP9 FRT",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("mp9frt.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "aprd",
+    name: "AR-Pistol",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("aprd.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "300b",
+    name: "300 Blackout",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("300b.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "fn",
+    name: "FN-57 Flashlight",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("fn.png"),
+    stats: { minDamage: 38, maxDamage: 45, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "fn57",
+    name: "FN-57",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("fn57.png"),
+    stats: { minDamage: 38, maxDamage: 45, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "fngflex",
+    name: "FN GFlex",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("fngflex.png"),
+    stats: { minDamage: 22, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "greyfully",
+    name: "Grey Fully AR-Pistol",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("greyfully.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "honeybadger",
+    name: "Honey Badger",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("honeybadger.png"),
+    stats: { minDamage: 20, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "kvec",
+    name: "Kriss Vector",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("kvec.png"),
+    stats: { minDamage: 20, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "mcx",
+    name: "SIG MCX",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("mcx.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "g45",
+    name: "Glock 45 Magholder",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("g45.png"),
+    stats: { minDamage: 26, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "tec9",
+    name: "TEC 9",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("tec9.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "blackg21",
+    name: "Black Glock 21",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("blackg21.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "fullyminidraco",
+    name: "Fully Mini Draco",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("fullyminidraco.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "ap3",
+    name: "Glock 19 Button",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("ap3.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "g205",
+    name: "Glock 20 Switch",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("g205.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "wmicroarp",
+    name: "White Micro ARP",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("wmicroarp.png"),
+    stats: { minDamage: 17, maxDamage: 32, range: 35, fireRate: 72, recoil: 20 },
+  },
+  {
+    id: "dracoz",
+    name: "Draco Zastava",
+    type: "weapon",
+    rarity: "Common",
+    tier: 2,
+    description:
+      "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
+    tags: ["Low recoil", "Fast draw"],
+    image: asset("dracoz.png"),
+    stats: { minDamage: 20, maxDamage: 30, range: 35, fireRate: 72, recoil: 20 },
   },
   {
     id: "actavis-syrup",

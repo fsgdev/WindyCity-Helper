@@ -119,19 +119,23 @@ export function DetailModal({ item, drugQuantity, onClose }: DetailModalProps) {
               </h3>
               <div className="space-y-2.5">
                 {[
-                  { label: "Damage", value: weaponStats.damage },
-                  { label: "Range", value: weaponStats.range },
-                  { label: "Fire Rate", value: weaponStats.fireRate },
-                  { label: "Recoil", value: weaponStats.recoil },
-                ].map(({ label, value }) => (
+                  {
+                    label: "Damage",
+                    value: weaponStats.maxDamage,
+                    text: `${weaponStats.minDamage}–${weaponStats.maxDamage}`,
+                  },
+                  { label: "Range", value: weaponStats.range, text: `${weaponStats.range}` },
+                  { label: "Fire Rate", value: weaponStats.fireRate, text: `${weaponStats.fireRate}` },
+                  { label: "Recoil", value: weaponStats.recoil, text: `${weaponStats.recoil}` },
+                ].map(({ label, value, text }) => (
                   <div key={label} className="flex items-center gap-3">
                     <span className="w-20 shrink-0 [font-family:'Inter',Helvetica] text-xs font-bold text-[#9aa6b2]">
                       {label}
                     </span>
                     <div className="flex flex-1 items-center gap-2">
                       <StatBar value={value} />
-                      <span className="w-7 shrink-0 text-right [font-family:'Inter',Helvetica] text-xs font-bold text-[#f5f7fa]">
-                        {value}
+                      <span className="w-12 shrink-0 text-right [font-family:'Inter',Helvetica] text-xs font-bold text-[#f5f7fa]">
+                        {text}
                       </span>
                     </div>
                   </div>

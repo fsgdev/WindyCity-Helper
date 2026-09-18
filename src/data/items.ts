@@ -521,6 +521,7 @@ export const catalogItems: CatalogItem[] = [
     type: "weapon",
     rarity: "Common",
     tier: 1.5,
+    spinTiers: [2],
     description:
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
@@ -797,6 +798,7 @@ export const catalogItems: CatalogItem[] = [
     type: "weapon",
     rarity: "Common",
     tier: 2,
+    spinTiers: [1.5],
     description:
       "Light sidearm for new players with fast draw speed, cheap ammo cost, and steady entry-level value for simple city jobs and everyday protection.",
     tags: ["Low recoil", "Fast draw"],
